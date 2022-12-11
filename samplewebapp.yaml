@@ -2,22 +2,22 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: LoginWebApp
+  name: sampleweb
   namespace: sampleweb
   labels:
-    app: LoginWebApp
+    app: sampleweb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: LoginWebApp
+      app: sampleweb
   template:
     metadata:
       labels:
-        app: LoginWebApp
+        app: sampleweb
     spec:
       containers:
-      - name: LoginWebApp
+      - name: sampleweb
         image: "dheerajayati91/samplewebapp:latest"
         ports:
           - containerPort: 9004
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: LoginWebApp
+  name: sampleweb
   namespace: sampleweb
 spec:
   selector:
