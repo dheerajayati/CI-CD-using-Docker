@@ -4,6 +4,6 @@ LABEL maintainer="Dheeraj Ayati"
 
 ADD ./target/LoginWebApp-1.war /usr/local/tomcat/webapps/
 
-EXPOSE 8080
+EXPOSE 9004
 
 CMD ["catalina.sh", "run"]
