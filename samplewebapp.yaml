@@ -1,0 +1,37 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: LoginWebApp-1
+  namespace: sampleweb
+  labels:
+    app: LoginWebApp-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: LoginWebApp-1
+  template:
+    metadata:
+      labels:
+        app: LoginWebApp-1
+    spec:
+      containers:
+      - name: LoginWebApp-1
+        image: "dheerajayati91/samplewebapp:latest"
+        ports:
+          - containerPort: 9004
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: LoginWebApp-1
+  namespace: default
+spec:
+  selector:
+    app: LoginWebApp-1
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 9004
+    port: 80
