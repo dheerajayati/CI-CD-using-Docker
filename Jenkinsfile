@@ -10,7 +10,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh 'mvn clean package' 
-		archiveArtifacts artifacts:'web/target/*.war'
+		archiveArtifacts artifacts:'target/*.war'
             }
         }
         stage('Docker Build') {
